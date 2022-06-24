@@ -45,28 +45,10 @@
                     <div @click="showNextElement()" class="next"></div>
 
                     <!-- Thumbs -->
-                    <div class="thumb active">
+                    <div v-for="(slide,index) in slides " class="thumb" :class="index === currentActiveElement ? 'active' : '' ">
 
-                        <div class="thumb active">
-
-                            <img @click="currentActiveElement = 0" src="img/01.jpg" alt="Svezia"/>
-                        </div>
-                        <div class="thumb">
-    
-                            <img @click="currentActiveElement = 1" src="img/02.jpg" alt="Svizzera" />
-                        </div>
-                        <div class="thumb">
-    
-                            <img @click="currentActiveElement = 2" src="img/03.jpg" alt="Gran Bretagna" />
-                        </div>
-                        <div class="thumb">
-    
-                            <img @click="currentActiveElement = 3" src="img/04.jpg" alt="Germania" />
-                        </div>
-                        <div class="thumb">
-    
-                            <img @click="currentActiveElement = 4" src="img/05.jpg" alt="Paradise" />
-                        </div>
+                        <img @click="currentActiveElement = index" :src="slide.image" alt="slide.title"/>
+                    </div>  
                 </div>
             </div>
         </div>
