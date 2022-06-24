@@ -7,7 +7,7 @@ var app = new Vue(
     {
         el:'#root',
         data: {
-            autoPlayClock: 0,
+            autoPlayClock : null,
             currentActiveElement: 0,
             slides: [
                 {
@@ -68,11 +68,21 @@ var app = new Vue(
                     this.currentActiveElement = this.slides.length - 1;
                 }
             },
+
+            // Funzione che fa partire l'autoplay:
+            startAutoplay() {
+                showNextElement();
+            },
+
+            // Funzione che ferma l'autoplay:
+            stopAutoplay() {
+                clearInterval();
+            }
         },
 
-        // Funzione che parte al caricamento della pagina:
+        // Funzione che fa partire l'autoplay al caricamento della pagina:
         mounted() {
-            setInterval(this.showNextElement, 3000 )
+            const autoPlayClock = setInterval(this.showNextElement, 3000);
         }
     },  
 );
