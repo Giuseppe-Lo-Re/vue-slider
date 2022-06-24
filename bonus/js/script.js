@@ -1,5 +1,7 @@
-// Descrizione:
-// Partendo dal markup in allegato, rifare lo slider usando Vuejs.
+// Bonus:
+// 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+// 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+// 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
 
 var app = new Vue(
     {
@@ -59,7 +61,7 @@ var app = new Vue(
                     // decremento currentActiveElement di 1:
                     this.currentActiveElement--;
                 } else {
-
+                    
                     // altrimenti riparte dalla fine(indice array = lunghezza array)
                     this.currentActiveElement = this.slides.length - 1;
                 }
