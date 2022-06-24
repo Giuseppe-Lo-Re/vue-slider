@@ -7,6 +7,7 @@ var app = new Vue(
     {
         el:'#root',
         data: {
+            autoPlayClock: 0,
             currentActiveElement: 0,
             slides: [
                 {
@@ -52,6 +53,7 @@ var app = new Vue(
                     this.currentActiveElement = 0;
                 }
             }, 
+
             // Funzione che mostra l'elemento precedente:
             showPrevElement() {
 
@@ -66,6 +68,11 @@ var app = new Vue(
                     this.currentActiveElement = this.slides.length - 1;
                 }
             },
+        },
+
+        // Funzione che parte al caricamento della pagina:
+        mounted() {
+            setInterval(this.showNextElement, 3000 )
         }
     },  
 );

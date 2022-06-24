@@ -50,6 +50,7 @@ var app = new Vue(
                     this.currentActiveElement = 0;
                 }
             }, 
+            
             // Funzione che mostra l'elemento precedente:
             showPrevElement() {
 
