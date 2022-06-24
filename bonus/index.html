@@ -20,7 +20,7 @@
     <!-- Vue.js -->
     <div id="root">    
         <div class="container" >
-            <div @mouseover="stopAutoplay()" @mouseleave="showNextElement()" class="slider-wrapper" tabindex="0">
+            <div @mouseover="stopAutoplay()" @mouseleave="startAutoplay()" class="slider-wrapper" tabindex="0">
 
                 <div class="item">
                     <img :src="slides[currentActiveElement].image" alt="slides[currentActiveElement].title" />
@@ -45,9 +45,9 @@
                     <div @click="showNextElement()" class="next"></div>
 
                     <!-- Thumbs -->
-                    <div v-for="(slide,index) in slides " class="thumb" :class="index === currentActiveElement ? 'active' : '' ">
+                    <div v-for="(slide,index) in slides" class="thumb" :class="index === currentActiveElement ? 'active' : '' ">
 
-                        <img @click="currentActiveElement = index" :src="slide.image" alt="slide.title"/>
+                        <img @click="setActiveElement(index)" :src="slide.image" alt="slide.title"/>
                     </div>  
                 </div>
             </div>
