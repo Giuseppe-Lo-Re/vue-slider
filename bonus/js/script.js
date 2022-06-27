@@ -77,16 +77,18 @@ var app = new Vue(
             // Funzione che ferma l'autoplay:
             stopAutoplay() {
                 clearInterval(this.autoPlayClock);
+                this.autoPlayClock = null;
             },
 
             // Funzione che setta l'indice dell'elemento attivo:
             setActiveElement(index) {
             this.currentActiveElement = index;
-            }
+            },
         },
+
         // Funzione che fa partire l'autoplay al caricamento della pagina:
         mounted() {
-            this.autoPlayClock = setInterval(this.showNextElement, 3000);
+            this.startAutoplay();
         }
     },  
 );
